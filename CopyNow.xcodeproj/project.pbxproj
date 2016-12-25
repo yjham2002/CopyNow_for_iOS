@@ -14,6 +14,8 @@
 		6BDD73FD1E0DA0F700044E76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BDD73FB1E0DA0F700044E76 /* LaunchScreen.storyboard */; };
 		6BDD74081E0DA0F700044E76 /* CopyNowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD74071E0DA0F700044E76 /* CopyNowTests.swift */; };
 		6BDD74131E0DA0F700044E76 /* CopyNowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD74121E0DA0F700044E76 /* CopyNowUITests.swift */; };
+		6BE75B271E1047F4006C4E7F /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE75B261E1047F4006C4E7F /* ViewController2.swift */; };
+		6BE75B291E104C98006C4E7F /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE75B281E104C98006C4E7F /* ViewController3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		6BDD740E1E0DA0F700044E76 /* CopyNowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CopyNowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BDD74121E0DA0F700044E76 /* CopyNowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyNowUITests.swift; sourceTree = "<group>"; };
 		6BDD74141E0DA0F700044E76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BE75B261E1047F4006C4E7F /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		6BE75B281E104C98006C4E7F /* ViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			children = (
 				6BDD73F21E0DA0F700044E76 /* AppDelegate.swift */,
 				6BDD73F41E0DA0F700044E76 /* ViewController.swift */,
+				6BE75B261E1047F4006C4E7F /* ViewController2.swift */,
+				6BE75B281E104C98006C4E7F /* ViewController3.swift */,
 				6BDD73F61E0DA0F700044E76 /* Main.storyboard */,
 				6BDD73F91E0DA0F700044E76 /* Assets.xcassets */,
 				6BDD73FB1E0DA0F700044E76 /* LaunchScreen.storyboard */,
@@ -188,7 +194,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "함의진";
 				TargetAttributes = {
 					6BDD73EE1E0DA0F600044E76 = {
@@ -264,6 +270,8 @@
 			files = (
 				6BDD73F51E0DA0F700044E76 /* ViewController.swift in Sources */,
 				6BDD73F31E0DA0F700044E76 /* AppDelegate.swift in Sources */,
+				6BE75B291E104C98006C4E7F /* ViewController3.swift in Sources */,
+				6BE75B271E1047F4006C4E7F /* ViewController2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +344,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -386,6 +395,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -514,6 +524,7 @@
 				6BDD74191E0DA0F700044E76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6BDD741A1E0DA0F700044E76 /* Build configuration list for PBXNativeTarget "CopyNowTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +533,7 @@
 				6BDD741C1E0DA0F700044E76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6BDD741D1E0DA0F700044E76 /* Build configuration list for PBXNativeTarget "CopyNowUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +542,7 @@
 				6BDD741F1E0DA0F700044E76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
