@@ -153,6 +153,9 @@
                                     <constraint firstAttribute="width" constant="72" id="x67-KI-c8A"/>
                                 </constraints>
                                 <state key="normal" title="Sign up"/>
+                                <connections>
+                                    <segue destination="iDA-cF-x7L" kind="presentation" id="HQq-7I-yG6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -173,6 +176,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1tX-Da-9Fc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-564" y="37.331334332833585"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="kfj-wV-cEc">
+            <objects>
+                <viewController id="iDA-cF-x7L" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mBh-IZ-q7N"/>
+                        <viewControllerLayoutGuide type="bottom" id="H3g-8c-jTN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vi0-Sm-uz4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ov-2T-Gym">
+                                <rect key="frame" x="120" y="272" width="134" height="123"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="134" id="7aF-sm-BGl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2Ov-2T-Gym" firstAttribute="top" secondItem="mBh-IZ-q7N" secondAttribute="bottom" constant="252" id="1EC-my-Ufo"/>
+                            <constraint firstItem="2Ov-2T-Gym" firstAttribute="centerX" secondItem="Vi0-Sm-uz4" secondAttribute="centerX" id="6Z5-8A-MfW"/>
+                            <constraint firstItem="2Ov-2T-Gym" firstAttribute="centerY" secondItem="Vi0-Sm-uz4" secondAttribute="centerY" id="qMv-63-G1J"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5dH-x7-LE3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-564" y="801.94902548725645"/>
         </scene>
         <!--Encryption-->
         <scene sceneID="wux-fx-Nxj">
