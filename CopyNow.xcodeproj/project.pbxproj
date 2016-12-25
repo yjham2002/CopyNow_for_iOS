@@ -16,6 +16,7 @@
 		6BDD74131E0DA0F700044E76 /* CopyNowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD74121E0DA0F700044E76 /* CopyNowUITests.swift */; };
 		6BE75B271E1047F4006C4E7F /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE75B261E1047F4006C4E7F /* ViewController2.swift */; };
 		6BE75B291E104C98006C4E7F /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE75B281E104C98006C4E7F /* ViewController3.swift */; };
+		6BE75B2B1E105C6F006C4E7F /* listCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE75B2A1E105C6F006C4E7F /* listCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		6BDD74141E0DA0F700044E76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BE75B261E1047F4006C4E7F /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		6BE75B281E104C98006C4E7F /* ViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
+		6BE75B2A1E105C6F006C4E7F /* listCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = listCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				6BDD73F41E0DA0F700044E76 /* ViewController.swift */,
 				6BE75B261E1047F4006C4E7F /* ViewController2.swift */,
 				6BE75B281E104C98006C4E7F /* ViewController3.swift */,
+				6BE75B2A1E105C6F006C4E7F /* listCell.swift */,
 				6BDD73F61E0DA0F700044E76 /* Main.storyboard */,
 				6BDD73F91E0DA0F700044E76 /* Assets.xcassets */,
 				6BDD73FB1E0DA0F700044E76 /* LaunchScreen.storyboard */,
@@ -271,6 +274,7 @@
 				6BDD73F51E0DA0F700044E76 /* ViewController.swift in Sources */,
 				6BDD73F31E0DA0F700044E76 /* AppDelegate.swift in Sources */,
 				6BE75B291E104C98006C4E7F /* ViewController3.swift in Sources */,
+				6BE75B2B1E105C6F006C4E7F /* listCell.swift in Sources */,
 				6BE75B271E1047F4006C4E7F /* ViewController2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
