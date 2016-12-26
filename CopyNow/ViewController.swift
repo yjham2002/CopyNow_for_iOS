@@ -8,8 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
 
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     let alert = UIAlertController(title: "Copy", message: "Do you really want to copy this contents?", preferredStyle: UIAlertControllerStyle.actionSheet)
     let alertOk = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: nil)
     let alertNo = UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil)
@@ -23,6 +34,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
         
         myTable.delegate = self;
         myTable.dataSource = self;
@@ -41,9 +54,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func getList(){
         indicator!.start()
-        let urlString = "http://yjham2002.woobi.co.kr/copynow/host.php?tr=106&id=ios"
+        let urlString = "http://yjham2002.woobi.co.kr/copynow/host.php?tr=106&id="
+        let accountName = "ios"
         
-        let url = URL(string: urlString)
+        let url = URL(string: urlString + accountName)
         URLSession.shared.dataTask(with:url!) { (data, response, error) in
             if error != nil {
                 print(error ?? "None")

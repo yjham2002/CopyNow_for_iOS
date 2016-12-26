@@ -24,7 +24,7 @@ class ProgressIndicator: UIView {
     }
     convenience init(inview:UIView) {
         
-        self.init(inview: inview,loadingViewColor: UIColor.brown,indicatorColor:UIColor.black, msg: "Loading..")
+        self.init(inview: inview,loadingViewColor: UIColor.brown,indicatorColor:UIColor.black, msg: "Loading...")
     }
     convenience init(inview:UIView,messsage:String) {
         

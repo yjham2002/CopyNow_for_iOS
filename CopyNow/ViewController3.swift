@@ -10,19 +10,27 @@ import UIKit
 
 class ViewController3: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var accountLabel: UILabel!
+    
+    var account:String? = "Account Info"
+    
     let alert = UIAlertController(title: "Logout", message: "Do you really want to logout?", preferredStyle: UIAlertControllerStyle.actionSheet)
     let alertOk = UIAlertAction(title: "Logout", style: UIAlertActionStyle.default, handler: nil)
     let alertNo = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil)
     
-    let menus = ["App Information","Go to Website","Sign out"]
+    let menus = ["Go to Website","Sign out"]
     
     @IBOutlet weak var myTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideKeyboardWhenTappedAround() 
+        
         alert.addAction(alertOk)
         alert.addAction(alertNo)
+        
+        accountLabel.text = account
         
         myTable.delegate = self;
         myTable.dataSource = self;
@@ -47,11 +55,10 @@ class ViewController3: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.row){
-            case 0: break
-            case 1:
+            case 0:
                 let url = URL(string: "http://www.copynow.kr")!
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            case 2: present(alert, animated: true, completion: nil)
+            case 1: present(alert, animated: true, completion: nil)
             default: break
         }
 
