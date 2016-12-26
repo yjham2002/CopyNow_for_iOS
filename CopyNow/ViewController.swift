@@ -17,6 +17,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var dates = [String]()
     var cnts = [String]()
     
+    var indicator:ProgressIndicator?
+    
     @IBOutlet weak var myTable: UITableView!
     
     override func viewDidLoad() {
@@ -31,10 +33,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         myTable.tableFooterView = UIView()
         // Do any additional setup after loading the view, typically from a nib.
         
+        indicator = ProgressIndicator(inview:self.view,loadingViewColor: UIColor.gray, indicatorColor: UIColor.black, msg: "Loading...")
+        self.view.addSubview(indicator!)
+        
         getList()
     }
 
     func getList(){
+        indicator!.start()
         let urlString = "http://yjham2002.woobi.co.kr/copynow/host.php?tr=106&id=ios"
         
         let url = URL(string: urlString)
@@ -54,6 +60,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
             }
                 self.myTable.reloadData()
+                self.indicator!.stop()
             }.resume()
         
     }
