@@ -58,7 +58,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let accountName = "ios"
         
         let url = URL(string: urlString + accountName)
-        URLSession.shared.dataTask(with:url!) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with:url!) { (data, response, error) in
             if error != nil {
                 print(error ?? "None")
             } else {
@@ -73,9 +73,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     print(error)
                 }
             }
+            DispatchQueue.main.async {
                 self.myTable.reloadData()
                 self.indicator!.stop()
-            }.resume()
+            }
+        }
+        task.resume()
         
     }
     
