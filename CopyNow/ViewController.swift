@@ -14,8 +14,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let alertOk = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: nil)
     let alertNo = UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil)
     
-    let dates = ["2014","2015","2016"]
-    let cnts = ["swift swift swift swift swift swift swift swift swift swift swift","iOS","Testing"]
+    var dates = [String]()
+    var cnts = [String]()
     
     @IBOutlet weak var myTable: UITableView!
     
@@ -30,8 +30,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         myTable.tableFooterView = UIView()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        getList()
     }
 
+    func getList(){
+        let urlString = "http://yjham2002.woobi.co.kr/copynow/host.php?tr=106&id=ios"
+        
+        let url = URL(string: urlString)
+        URLSession.shared.dataTask(with:url!) { (data, response, error) in
+            if error != nil {
+                print(error ?? "None")
+            } else {
+                do {
+                    let parsedData = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [[String:Any]]
+                    for item in parsedData {
+                        self.dates.append(item["dates"] as! String)
+                        self.cnts.append(item["contents"] as! String)
+                        
+                    }
+                } catch let error as NSError {
+                    print(error)
+                }
+            }
+                self.myTable.reloadData()
+            }.resume()
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

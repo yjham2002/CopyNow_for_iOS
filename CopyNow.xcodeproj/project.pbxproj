@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6B1175001E118FE4003016C2 /* setCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1174FF1E118FE4003016C2 /* setCell.swift */; };
+		6B1175021E11ACC7003016C2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B1175011E11ACC7003016C2 /* Default-568h@2x.png */; };
 		6BDD73F31E0DA0F700044E76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD73F21E0DA0F700044E76 /* AppDelegate.swift */; };
 		6BDD73F51E0DA0F700044E76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD73F41E0DA0F700044E76 /* ViewController.swift */; };
 		6BDD73F81E0DA0F700044E76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BDD73F61E0DA0F700044E76 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		6B1174FF1E118FE4003016C2 /* setCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setCell.swift; sourceTree = "<group>"; };
+		6B1175011E11ACC7003016C2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6BDD73EF1E0DA0F700044E76 /* CopyNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopyNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BDD73F21E0DA0F700044E76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BDD73F41E0DA0F700044E76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 		6BDD73E61E0DA0F600044E76 = {
 			isa = PBXGroup;
 			children = (
+				6B1175011E11ACC7003016C2 /* Default-568h@2x.png */,
 				6BDD73F11E0DA0F700044E76 /* CopyNow */,
 				6BDD74061E0DA0F700044E76 /* CopyNowTests */,
 				6BDD74111E0DA0F700044E76 /* CopyNowUITests */,
@@ -248,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BDD73FD1E0DA0F700044E76 /* LaunchScreen.storyboard in Resources */,
+				6B1175021E11ACC7003016C2 /* Default-568h@2x.png in Resources */,
 				6BDD73FA1E0DA0F700044E76 /* Assets.xcassets in Resources */,
 				6BDD73F81E0DA0F700044E76 /* Main.storyboard in Resources */,
 			);
