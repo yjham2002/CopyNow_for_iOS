@@ -10,8 +10,12 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    let alert = UIAlertController(title: "Copy", message: "Do you really want to copy this contents?", preferredStyle: UIAlertControllerStyle.actionSheet)
+    let alertOk = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: nil)
+    let alertNo = UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil)
+    
     let dates = ["2014","2015","2016"]
-    let cnts = ["swift","iOS","Testing"]
+    let cnts = ["swift swift swift swift swift swift swift swift swift swift swift","iOS","Testing"]
     
     @IBOutlet weak var myTable: UITableView!
     
@@ -20,6 +24,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         myTable.delegate = self;
         myTable.dataSource = self;
+        
+        alert.addAction(alertOk)
+        alert.addAction(alertNo)
+        
+        myTable.tableFooterView = UIView()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -32,15 +41,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return dates.count
     }
     
-    // 각 row 마다 데이터 세팅.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // 첫 번째 인자로 등록한 identifier, cell은 as 키워드로 앞서 만든 custom cell class화 해준다.
         let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath as IndexPath) as! listCell
         
         cell.dateLabel.text = dates[indexPath.row]
         cell.contentLabel.text = cnts[indexPath.row]
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        present(alert, animated: true, completion: nil)
+            //UIPasteboard.general.string = cnts[indexPath.row]
     }
     
 }
