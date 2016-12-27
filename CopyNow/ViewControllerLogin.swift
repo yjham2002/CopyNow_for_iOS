@@ -10,6 +10,8 @@ import UIKit
 
 class ViewControllerLogin: UIViewController{
     
+    var indicator:ProgressIndicator?
+    
     @IBOutlet weak var accountText: UITextField!
     
     override func prepare(for segue:UIStoryboardSegue, sender: Any?) {
@@ -30,6 +32,43 @@ class ViewControllerLogin: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Login View")
+        indicator = ProgressIndicator(inview:self.view,loadingViewColor: UIColor.gray, indicatorColor: UIColor.black, msg: "Loading...")
+        self.view.addSubview(indicator!)
+    }
+    
+    func userAuth(account:String?){
+        if(account?.isEmpty)!{
+            return
+        }
+        indicator!.start()
+        let urlString = "http://yjham2002.woobi.co.kr/copynow/host.php?tr=108&id="
+        
+        var res:Int? = 0
+        
+        let url = URL(string: urlString + (account ?? ""))
+        let task = URLSession.shared.dataTask(with:url!) { (data, response, error) in
+            if error != nil {
+                print(error ?? "None")
+            } else {
+                do {
+                    let parsedData = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
+                    res = parsedData as? Int
+                } catch let error as NSError {
+                    print(error)
+                }
+            }
+            DispatchQueue.main.async {
+                self.indicator!.stop()
+                if(res == 0){
+                }
+                else{
+                    self.performSegue(withIdentifier: "signin", sender: nil)
+                }
+                
+                
+            }
+        }
+        task.resume()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -42,8 +81,7 @@ class ViewControllerLogin: UIViewController{
     
     @IBAction func onSignIn(_ sender: Any) {
         if !(accountText.text?.isEmpty ?? false){
-            performSegue(withIdentifier: "signin", sender: nil)
-        }else{
+            userAuth(account: accountText.text)
         }
     }
     
