@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toaster
 
 class ViewControllerLogin: UIViewController{
     
@@ -60,6 +61,7 @@ class ViewControllerLogin: UIViewController{
             DispatchQueue.main.async {
                 self.indicator!.stop()
                 if(res == 0){
+                    Toast(text: "invalid ID").show()
                 }
                 else{
                     self.performSegue(withIdentifier: "signin", sender: nil)

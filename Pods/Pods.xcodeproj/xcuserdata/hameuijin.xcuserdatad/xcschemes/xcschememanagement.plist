@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-CopyNow.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-CopyNowTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-CopyNowUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Toaster.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>2CFCAB083A2BCEAAE42FBE29B581AB5F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>40EB46DD474C7DF23C01000242012D99</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>680328E6BE8DBB3568F84F059F1B492C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E1C052CBDE3181737F52817D9DFF7400</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

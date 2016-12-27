@@ -1,0 +1,6 @@
+framework module Pods_CopyNowTests {
+  umbrella header "Pods-CopyNowTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
