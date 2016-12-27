@@ -30,7 +30,10 @@ class ViewControllerLogin: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Login View")
-        self.hideKeyboardWhenTappedAround() 
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {

@@ -200,9 +200,6 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <segue destination="js7-yu-zFG" kind="presentation" identifier="signin" id="Ka3-UP-5ga"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwY-wD-1cC">
                                 <rect key="frame" x="164" y="366" width="47" height="30"/>
@@ -261,6 +258,7 @@
                     </view>
                     <connections>
                         <outlet property="accountText" destination="zEH-Og-TwA" id="OKb-H1-jJU"/>
+                        <segue destination="js7-yu-zFG" kind="presentation" identifier="signin" id="rER-bC-f02"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1tX-Da-9Fc" userLabel="First Responder" sceneMemberID="firstResponder"/>

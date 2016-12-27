@@ -20,10 +20,14 @@ class ViewController3: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     @IBOutlet weak var myTable: UITableView!
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.hideKeyboardWhenTappedAround()
+        //self.hideKeyboardWhenTappedAround()
         
         accountLabel.text = account
         

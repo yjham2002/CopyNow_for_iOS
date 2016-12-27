@@ -17,7 +17,10 @@ class ViewControllerSign: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Signup View")
-        self.hideKeyboardWhenTappedAround()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
