@@ -10,8 +10,8 @@ import UIKit
 
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
+        let tab:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tab)
     }
     
     func dismissKeyboard() {
@@ -21,9 +21,14 @@ extension UIViewController {
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let alert = UIAlertController(title: "Copy", message: "Do you really want to copy this contents?", preferredStyle: UIAlertControllerStyle.actionSheet)
-    let alertOk = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: nil)
-    let alertNo = UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil)
+    var account:String?
+    
+    let alert = UIAlertController(title: "Info", message: "Content has been copied to your clipboard", preferredStyle: UIAlertControllerStyle.actionSheet)
+    
+    func displayShareSheet(shareContent:String) {
+        let activityViewController = UIActivityViewController(activityItems: [shareContent as NSString], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: nil)
+    }
     
     var dates = [String]()
     var cnts = [String]()
@@ -40,8 +45,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         myTable.delegate = self;
         myTable.dataSource = self;
         
-        alert.addAction(alertOk)
-        alert.addAction(alertNo)
+        alert.addAction(UIAlertAction(title: "Share", style: .default, handler: {action in
+            self.displayShareSheet(shareContent: "[Copied from CopyNow for iOS]\n" + (UIPasteboard.general.string ?? ""))
+            print("Copied")
+        }))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         
         myTable.tableFooterView = UIView()
         // Do any additional setup after loading the view, typically from a nib.
@@ -55,9 +63,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func getList(){
         indicator!.start()
         let urlString = "http://yjham2002.woobi.co.kr/copynow/host.php?tr=106&id="
-        let accountName = "ios"
+        let accountName = account
         
-        let url = URL(string: urlString + accountName)
+        let url = URL(string: urlString + (accountName ?? ""))
         let task = URLSession.shared.dataTask(with:url!) { (data, response, error) in
             if error != nil {
                 print(error ?? "None")
@@ -102,7 +110,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         present(alert, animated: true, completion: nil)
-            //UIPasteboard.general.string = cnts[indexPath.row]
+        UIPasteboard.general.string = cnts[indexPath.row]
     }
     
 }

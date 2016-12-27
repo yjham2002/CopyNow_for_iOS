@@ -15,8 +15,10 @@ class ViewControllerLogin: UIViewController{
     override func prepare(for segue:UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "signin"){
             let tabBarController = segue.destination as! UITabBarController;
-            let dest = tabBarController.viewControllers![2] as! ViewController3
-            dest.account = accountText.text
+            let dest1 = tabBarController.viewControllers![0] as! ViewController
+            let dest2 = tabBarController.viewControllers![2] as! ViewController3
+            dest1.account = accountText.text
+            dest2.account = accountText.text
         }
     }
     
@@ -28,11 +30,15 @@ class ViewControllerLogin: UIViewController{
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+    
     @IBAction func onSignIn(_ sender: Any) {
-        print("Sign In Tabbed")
+        if !(accountText.text?.isEmpty ?? false){
+            performSegue(withIdentifier: "signin", sender: nil)
+        }else{
+        }
     }
+    
     @IBAction func onSignUp(_ sender: Any) {
         print("Sign Up Tabbed")
     }

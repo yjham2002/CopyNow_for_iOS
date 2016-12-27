@@ -14,23 +14,23 @@ class ViewController3: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     var account:String? = "Account Info"
     
-    let alert = UIAlertController(title: "Logout", message: "Do you really want to logout?", preferredStyle: UIAlertControllerStyle.actionSheet)
-    let alertOk = UIAlertAction(title: "Logout", style: UIAlertActionStyle.default, handler: nil)
-    let alertNo = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil)
-    
     let menus = ["Go to Website","Sign out"]
+    
+    let alert = UIAlertController(title: "Sign Out", message: "Do you really want to sign out?", preferredStyle: UIAlertControllerStyle.actionSheet)
     
     @IBOutlet weak var myTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.hideKeyboardWhenTappedAround() 
-        
-        alert.addAction(alertOk)
-        alert.addAction(alertNo)
+        self.hideKeyboardWhenTappedAround()
         
         accountLabel.text = account
+        
+        alert.addAction(UIAlertAction(title: "Sign out", style: .default, handler: {action in
+            self.performSegue(withIdentifier: "logout", sender: self)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         
         myTable.delegate = self;
         myTable.dataSource = self;
@@ -56,7 +56,7 @@ class ViewController3: UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.row){
             case 0:
-                let url = URL(string: "http://www.copynow.kr")!
+                let url = URL(string: "http://yjham2002.woobi.co.kr/copynow/content.php?id=" + (account ?? ""))!
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             case 1: present(alert, animated: true, completion: nil)
             default: break
