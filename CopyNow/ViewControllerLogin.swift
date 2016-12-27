@@ -23,6 +23,10 @@ class ViewControllerLogin: UIViewController{
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Login View")

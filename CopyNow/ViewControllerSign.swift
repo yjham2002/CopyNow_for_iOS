@@ -24,4 +24,8 @@ class ViewControllerSign: UIViewController{
         super.didReceiveMemoryWarning()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .default
+    }
+    
 }
