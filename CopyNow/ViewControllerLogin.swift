@@ -19,6 +19,7 @@ class ViewControllerLogin: UIViewController{
             let dest2 = tabBarController.viewControllers![2] as! ViewController3
             dest1.account = accountText.text
             dest2.account = accountText.text
+            accountText.text = ""
         }
     }
     

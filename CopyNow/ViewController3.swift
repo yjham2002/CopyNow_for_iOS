@@ -28,7 +28,8 @@ class ViewController3: UIViewController, UITableViewDelegate, UITableViewDataSou
         accountLabel.text = account
         
         alert.addAction(UIAlertAction(title: "Sign out", style: .default, handler: {action in
-            self.performSegue(withIdentifier: "logout", sender: self)
+            self.dismiss(animated: true, completion: nil)
+            //self.performSegue(withIdentifier: "logout", sender: self)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         
