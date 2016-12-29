@@ -12,6 +12,8 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var clip: UITextField!
+    
     var account:String?
     
     let alert = UIAlertController(title: "Info", message: "Content has been copied to your clipboard", preferredStyle: UIAlertControllerStyle.actionSheet)
@@ -19,6 +21,60 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func displayShareSheet(shareContent:String) {
         let activityViewController = UIActivityViewController(activityItems: [shareContent as NSString], applicationActivities: nil)
         present(activityViewController, animated: true, completion: nil)
+    }
+    
+    func onUpload(content:String?){
+        if (content?.isEmpty)!{
+            return
+        }
+        let date = Date()
+        let calendar = Calendar.current
+        
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
+        let currentTime = "\(year)-\(month)-\(day) \(hour):\(minutes):\(seconds)"
+        
+        var request:URLRequest?
+        
+        let mapDict = [ "id":account ?? "", "date":currentTime, "cont":content ?? ""] as [String : Any]
+        do{
+            
+            let jsonData = try JSONSerialization.data(withJSONObject: mapDict, options: .prettyPrinted)
+            let urlString = URL(string : "http://yjham2002.woobi.co.kr/copynow/host.php?tr=109")
+            request = URLRequest(url: urlString!)
+            request?.httpMethod = "POST"
+            request?.httpBody = jsonData
+            request?.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request?.addValue("application/json", forHTTPHeaderField: "Accept")
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+        let task = URLSession.shared.dataTask(with:request!){ data,response,error in
+            if error != nil{
+                print(error ?? "")
+                return
+            }
+            do{
+                if let responseJSON = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String:AnyObject]{
+                print(responseJSON)
+                }
+            } catch let error as NSError {
+                print(mapDict)
+                print(error.localizedDescription)
+            }
+        }
+        
+        task.resume()
+        
+    }
+    
+    @IBAction func onAdd(_ sender: Any) {
+            onUpload(content: clip.text)
     }
     
     var dates = [String]()
@@ -64,14 +120,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 print(error ?? "None")
             } else {
                 do {
-                    let parsedData = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [[String:Any]]
-                    for item in parsedData {
-                        self.dates.append(item["dates"] as! String)
-                        self.cnts.append(item["contents"] as! String)
-                        
+                    print("JSON Parsing Started")
+                    if let parsedData = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [[String:Any]]{
+                        print("JSON Parsing loop")
+                        for item in parsedData.reversed() {
+                            self.dates.append(item["dates"] as! String)
+                            self.cnts.append(item["contents"] as! String)
+                            
+                        }
+                    }else{
+                        print("Empty Set returned")
                     }
+                    
+                    
                 } catch let error as NSError {
-                    print(error)
+                    print(error.localizedDescription)
                 }
             }
             DispatchQueue.main.async {
@@ -80,7 +143,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
         task.resume()
-        
     }
     
     override func didReceiveMemoryWarning() {
