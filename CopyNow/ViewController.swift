@@ -107,6 +107,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.view.addSubview(indicator!)
         
         getList()
+        myTable.estimatedRowHeight = myTable.rowHeight
+        myTable.rowHeight = UITableViewAutomaticDimension
     }
 
     func getList(){
@@ -149,7 +151,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
+        let height = CGFloat(60 + (cnts[indexPath.row].characters.count / 30) * 17)
+        return height
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection: Int) -> Int {
         return dates.count
     }
@@ -160,6 +167,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.dateLabel.text = dates[indexPath.row]
         cell.contentLabel.text = cnts[indexPath.row]
         
+        cell.contentLabel.numberOfLines = 0
         return cell
     }
     
